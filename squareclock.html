@@ -1,0 +1,139 @@
+<!--
+#####
+#
+#	SquareClock
+#	
+#	tocausan
+#	2013
+#	
+#	using :
+#		canvas
+#		javascript
+#		jquery
+#
+#####
+-->
+
+<meta charset="UTF-8">
+<title>⚓︎ SquareClock ⚓︎</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.2.6.min.js"></script>
+
+<div class="contenu">
+  <canvas id="secs" width="3000px" height="3000px"></canvas>
+  <canvas id="mins" width="3000px" height="3000px"></canvas>
+  <canvas id="hours" width="3000px" height="3000px"></canvas>
+</div>
+
+<style>
+.contenu{
+	position: ;
+	text-align: center;
+	margin: auto auto
+}
+#secs, #mins, #hours {
+  position: absolute;
+  margin: auto auto;
+  height: 50%;
+  margin: 10% 0 0 -15%;
+}
+#secs {
+  z-index: 3;
+  opacity: 1;
+}
+#mins {
+  z-index: 2;
+}
+#hours {
+  z-index: 1;
+}
+#secs, #mins, #hours {
+   -webkit-transition: 0.8s;
+   -moz-transition: 0.8s;
+   -ms-transition: 0.8s;
+   -o-transition: 0.8s;
+   transition: 0.8s;
+}
+</style>
+
+<script>
+	// set time
+    $(document).ready(function() {
+          setInterval( function() {
+          var second = new Date().getSeconds();
+          var secdegree = second * 6;
+          var secrotate = "rotate(" + secdegree + "deg)";
+          $("#secs").css({"-moz-transform" : secrotate, "-webkit-transform" : secrotate});
+          }, 50 );
+          setInterval( function() {
+          var hour = new Date().getHours();
+          var min = new Date().getMinutes();
+          var hourdegree = hour * 30 + (mins / 2);
+          var hourrotate = "rotate(" + hourdegree + "deg)";
+          $("#hours").css({"-moz-transform" : hourrotate, "-webkit-transform" : hourrotate});
+          }, 1000 );
+          setInterval( function() {
+          var min = new Date().getMinutes();
+          var mindegree = min * 6;
+          var minrotate = "rotate(" + mindegree + "deg)";
+          $("#mins").css({"-moz-transform" : minrotate, "-webkit-transform" : minrotate});
+          }, 1000 );
+    });	  
+</script>
+
+<script>
+	// draw the clock
+	var square1 = document.getElementById("secs");var ctxsquare1 = square1.getContext("2d");ctxsquare1.fillStyle = "rgba(255, 60, 60, 0.3)";
+	ctxsquare1.beginPath();
+	ctxsquare1.moveTo(0,0);
+	ctxsquare1.lineTo(0,3000);
+	ctxsquare1.lineTo(3000,3000);
+	ctxsquare1.lineTo(3000,0);
+	ctxsquare1.lineTo(1600,0);
+	ctxsquare1.lineTo(1600,1500);
+	ctxsquare1.bezierCurveTo(1600,1650,1400,1650,1400,1500);
+	ctxsquare1.lineTo(1400,0);
+	ctxsquare1.lineTo(0,0);
+	ctxsquare1.fill();
+	ctxsquare1.font="70px Brush Script MT";
+	ctxsquare1.fillStyle='rgba(0, 255, 255, 0.5)';
+	ctxsquare1.strokeText("squareclock.",1400,1750);
+	
+	var square2 = document.getElementById("mins");var ctxsquare2 = square2.getContext("2d");ctxsquare2.fillStyle = "rgba(255, 255, 60, 0.3)";
+	ctxsquare2.beginPath();
+	ctxsquare2.moveTo(0,0);
+	ctxsquare2.lineTo(0,3000);
+	ctxsquare2.lineTo(3000,3000);
+	ctxsquare2.lineTo(3000,0);
+	ctxsquare2.lineTo(1600,0);
+	ctxsquare2.lineTo(1600,1500);
+	ctxsquare2.bezierCurveTo(1600,1650,1400,1650,1400,1500);
+	ctxsquare2.lineTo(1400,0);
+	ctxsquare2.lineTo(0,0);
+	ctxsquare2.fill();
+	ctxsquare2.font="70px Brush Script MT";
+	ctxsquare2.fillStyle='rgba(0, 255, 255, 0.7)';
+	ctxsquare2.strokeText("squareclock.",1400,1750);
+	
+	var square3 = document.getElementById("hours");var ctxsquare3 = square3.getContext("2d");ctxsquare3.fillStyle = "rgba(60, 255, 255, 0.3)";
+	ctxsquare3.beginPath();
+	ctxsquare3.moveTo(0,0);
+	ctxsquare3.lineTo(0,3000);
+	ctxsquare3.lineTo(3000,3000);
+	ctxsquare3.lineTo(3000,0);
+	ctxsquare3.lineTo(1600,0);
+	ctxsquare3.moveTo(1600,0);
+	ctxsquare3.lineTo(1600,1500);
+	ctxsquare3.bezierCurveTo(1600,1650,1400,1650,1400,1500);
+	ctxsquare3.lineTo(1400,0);
+	ctxsquare3.lineTo(0,0);
+	ctxsquare3.fill();
+	ctxsquare3.font="70px Brush Script MT";
+	ctxsquare3.fillStyle='rgba(0, 255, 255, 0.7)';
+	ctxsquare3.strokeText("squareclock.",1400,1750);
+</script>
+
+
+
+
+
