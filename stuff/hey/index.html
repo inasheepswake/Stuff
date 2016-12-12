@@ -1,0 +1,119 @@
+<script>
+	// debug token
+	var info = {
+		all :		1,
+		speed :		0,
+		position :	0
+	}
+	
+	
+</script>
+
+
+
+
+<meta charset="UTF-8">
+<title>⚓︎</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="js/gravitation.class.js"></script>
+
+<body></body>
+
+<style>
+body{
+	margin: 0;
+}
+input{
+	width: 200px;
+	height: 20px;
+	border: none;
+	background-color: rgba(0,0,0,0;);
+	color: rgba(255,255,255,.8);
+}
+canvas.graphe1{
+	background-color: rgba(0,100,200,.5);
+}
+</style>
+
+
+
+<script>
+// define document var
+var WINDOW_HEIGHT	= document.height,
+	WINDOW_WIDTH	= document.width,
+	BG_COLOR		= "rgba(0,0,0,.8)";
+
+// append canvas "coucou" to body
+$("body").append("<canvas id=\"coucou\" width='"+ WINDOW_WIDTH +"' height='"+ WINDOW_HEIGHT +"'></canvas>")
+// append canvas "info" to body
+$("body").append("<canvas id=\"info\" width='"+ WINDOW_WIDTH +"' height='"+ WINDOW_HEIGHT +"'></canvas>")
+
+// set css
+$('body,html').css({
+	"width": WINDOW_WIDTH,
+	"height": WINDOW_HEIGHT,
+	"background-color":BG_COLOR,
+	"margin":"0"
+})
+
+$('canvas').css({
+	"position":"absolute"
+})
+
+
+window.addEventListener('load', function () {
+		var canvas1 = document.getElementById('coucou');
+		if (!canvas1 || !canvas1.getContext) {
+			console.log("!canvas1 || !canvas1.getContext");
+			return;
+		}
+		ctx = canvas1.getContext('2d');
+		if (!ctx) {
+			console.log("!ctx");
+			return;
+		}
+		game = setInterval(refreshGame, .01);	
+}, false);
+
+window.addEventListener('load', function () {
+		var canvas2 = document.getElementById('info');
+		if (!canvas2 || !canvas2.getContext) {
+			console.log("!canvas2 || !canvas2.getContext");
+			return;
+		}
+		ctx2 = canvas2.getContext('2d');
+		if (!ctx2) {
+			console.log("!ctx2");
+			return;
+		}
+		game = setInterval(refreshGame, .01);	
+}, false);
+
+
+
+function refreshGame() {
+
+//			zone.clearContext()
+			zone.clearContext2();
+			
+			center.affichage();
+			
+			planete.affichage(center);
+			satellite_1_1.affichage(planete);
+			satellite_1_2.affichage(planete);
+			
+			planete2.affichage(center);
+			satellite_2_1.affichage(planete2);
+			satellite_2_2.affichage(planete2);
+			
+			planete3.affichage(center);
+			satellite_3_1.affichage(planete3);
+			satellite_3_2.affichage(planete3);
+			
+
+}
+
+
+</script>
+
+
